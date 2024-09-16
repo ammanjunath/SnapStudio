@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - snapstudioApp
+name: Build and deploy Node.js app to Azure Web App - SnapStudioApp
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: '20.x'
 
       - name: npm install, build, and test
         run: |
@@ -57,15 +57,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B8F511043E8B403EBD716BD6E2E7A119 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_6736888B786D4ACD8CFCE7219CD9FB54 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B57A4516AB6A4433B5C65B5CB75F476F }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_1BC6F08B6FF148E7B82EF4CC939E1FE9 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_DBC9BBE013744A11BA2EEA8F3EA58DFF }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B879D6CA3C5E4A62BFC20754B41C06D8 }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'snapstudioApp'
+          app-name: 'SnapStudioApp'
           slot-name: 'Production'
           package: .
           
