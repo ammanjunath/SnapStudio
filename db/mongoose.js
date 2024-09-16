@@ -10,5 +10,8 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log('Connected to MongoDB');
 });
-
+return {
+    DATABASE_URL: process.env.DATABASE_URL,
+    DATABASE_NAME: process.env.DATABASE_NAME
+  }
 module.exports = mongoose;
