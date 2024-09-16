@@ -1,17 +1,26 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/snapStudio', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+async function getConnectionInfo() {
+  if (!process.env.DATABASE_URL) {
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    console.log('Connected to MongoDB');
-});
-return {
+    await putKeyVaultSecretInEnvVar();
+
+    // still don't have a database url?
+    if(!process.env.DATABASE_URL){
+      throw new Error("No value in DATABASE_URL in env var");
+    }
+  }
+
+  // To override the database name, set the DATABASE_NAME environment variable in the .env file
+  const DATABASE_NAME = process.env.DATABASE_NAME || "azure-todo-app";
+
+  return {
     DATABASE_URL: process.env.DATABASE_URL,
     DATABASE_NAME: process.env.DATABASE_NAME
   }
-module.exports = mongoose;
+}
+
+
+module.exports = {
+  getConnectionInfo
+}
