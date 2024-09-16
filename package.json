@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --recursive --exclude 'C:\\$Recycle.Bin' './test/**/*.js'"
+    "name": "node app.js"
   },
   "author": "",
   "license": "ISC",
