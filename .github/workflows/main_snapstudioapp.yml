@@ -59,4 +59,4 @@ jobs:
           app-name: 'SnapStudioApp'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DFAE1127244245C6BB155A163A4CCB95 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BB9BA7F02B8E47DB98D0B99EFD93F42C }}
